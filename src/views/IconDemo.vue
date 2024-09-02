@@ -23,6 +23,7 @@
 </el-row>
     <el-icon :size="20">
     <MessageBox />
+    <MessageBox />
 </el-icon>
 <Edit style="width: 2em; height: 2em; margin-left: 80px;"/>
 
