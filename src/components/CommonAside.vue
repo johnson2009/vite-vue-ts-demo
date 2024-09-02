@@ -4,6 +4,7 @@
         background-color="#545c64"
         text-color="#fff"
         :collapse="isCollapse"
+        :collapse-transition="false"
       >
       <h3 v-show="!isCollapse">通用后台管理系统</h3>
             <el-menu-item
@@ -41,7 +42,7 @@
 
 <script setup lang="ts">
 import {ref, computed} from 'vue'
-import {useAllDataStore} from '@/stores'
+import {useAllDataStore} from '@/store'
 
 const list = ref([
       	{

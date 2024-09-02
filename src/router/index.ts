@@ -1,4 +1,10 @@
 import { createRouter, createWebHistory} from "vue-router";
+import Main from '@/views/Main.vue'
+import Index from '@/views/Index.vue'
+import Login from '@/views/Login.vue'
+import IconDemo from '@/views/IconDemo.vue'
+import Home from '@/views/Home.vue'
+import { componentSizeMap } from "element-plus";
 
 const router = createRouter({
     //设置路由的模式
@@ -7,22 +13,30 @@ const router = createRouter({
         {
             path:'/',
             name:'main',
-            component:()=>import('@/views/Main.vue')
+            component: Main,
+            redirect:'/home',
+            children:[
+                {
+                    path:'home',
+                    name:'home',
+                    component: Home
+                }
+            ]
         },
         {
             path:'/login', 
             name:'login',
-            component:()=>import('@/views/Login.vue')
+            component: Login
         },
         {
             path:'/index',
             name:'index',
-            component:()=>import('@/views/Index.vue')
+            component: Index
         },
         {
             path:'/icondemo',
             name:'icondemo',
-            component: () => import(('@/views/IconDemo.vue'))
+            component: IconDemo
         }
     ]
 });

@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="l-content">
-        <el-button size="small">
+        <el-button size="small" @click="handleCollapse">
             <component class="icons" is="Menu"></component>
         </el-button>
         <el-breadcrumb separator="/" class="bread">
@@ -25,9 +25,14 @@
 </template>
 
 <script setup lang="ts">
+import {useAllDataStore} from '@/store'
 
 const getImageUrl = (user) =>{
     return new URL(`../assets/images/${user}.png`, import.meta.url).href
+}
+const store = useAllDataStore();
+const handleCollapse = () =>{
+    store.state.isCollapse = !store.state.isCollapse
 }
 </script>
 
